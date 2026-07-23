@@ -51,8 +51,9 @@ done
 
 These rewrite reflex interpreter calls to `jail-<lang>` wrappers brokered by nono
 (no network, repo read-only, scratch read-write). The nono side (wrappers +
-`command_policies`) is provisioned in the nono profile, out of band — see the
-task8 interpreter-jail design doc. This skill only does the hook side.
+`command_policies`) is provisioned in the nono profile, out of band — see your
+nono interpreter-jail design (the `command_policies` broker + `jail-*` wrappers).
+This skill only does the hook side.
 
 ## Step 2 — Bash-read allowlist
 

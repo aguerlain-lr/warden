@@ -38,7 +38,7 @@ Aggregate the denied paths/operations across sessions into a frequency list.
 ## Step 2 — Read the jail's Claude-layer prompts
 
 ```bash
-JAIL_CFG="$HOME/.claude-jail"   # today's jail config dir (pre-inversion)
+JAIL_CFG="$HOME/.claude-jail"   # the jail's config dir (adjust to your layout)
 jq -r '.tool_name + " | " + (.tool_input.command // .tool_input.file_path // "n/a")' \
   "$JAIL_CFG/permission-requests.log" 2>/dev/null | sort | uniq -c | sort -rn | head -20
 ```
@@ -63,15 +63,17 @@ clears the observed denial.
 ## Step 4 — Draft nono profile edits (never promote)
 
 The active profile dir is read-only; write drafts to `~/.config/nono/profile-drafts/`.
+`<profile>` below is the name of the jail's active nono profile — resolve it from the
+running session (`nono profile list`, or the profile the jail was launched with).
 Follow the nono-sandbox skill's draft protocol: if a user profile
-`~/.config/nono/profiles/claude-code-hardened.json` exists, read it, compute the
+`~/.config/nono/profiles/<profile>.json` exists, read it, compute the
 SHA-256 of the exact bytes, base the edit on it, and write that hash to
-`~/.config/nono/profile-drafts/claude-code-hardened.base`. Run `nono profile guide`
+`~/.config/nono/profile-drafts/<profile>.base`. Run `nono profile guide`
 for the schema. Write the full edited profile JSON to
-`~/.config/nono/profile-drafts/claude-code-hardened.json`.
+`~/.config/nono/profile-drafts/<profile>.json`.
 
 Tell the user:
-> Drafted claude-code-hardened. Run `nono profile promote claude-code-hardened` to
+> Drafted `<profile>`. Run `nono profile promote <profile>` to
 > review and apply, then restart the jailed session.
 
 ## Step 5 — Delegate the Claude layer
