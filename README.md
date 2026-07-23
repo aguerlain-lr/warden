@@ -2,9 +2,11 @@
 
 Skills for the nono-sandboxed ("jailed") Claude Code.
 
-- **setup-jail** — installs the jail's command-policy config, a bash-read
-  allowlist, and the audit-log hook into the jail's config dir
-  (`$CLAUDE_CONFIG_DIR`). Leans on the housekeep `command-policy` skill.
+- **setup-jail** — HOST-ONLY. Installs the jail's command-policy config, a
+  bash-read allowlist, and the audit-log hook into the jail's config dir
+  (`$JAIL_DIR`, default `~/.claude-jail`). The host provisions the jail; the
+  jailed agent never configures itself. Leans on the housekeep
+  `command-policy` skill.
 - **tune-nono** — HOST-ONLY. Correlates `nono` kernel denials
   (`~/.local/state/nono`, unreadable from inside the jail) with the jail's
   `permission-requests.log`, decides which layer each fix belongs in, and

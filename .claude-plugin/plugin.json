@@ -1,7 +1,7 @@
 {
   "name": "warden",
   "description": "Skills for the nono-sandboxed ('jailed') Claude Code: setup-jail and tune-nono. Leans on the housekeep command-policy skill. CLAUDE_CONFIG_DIR-aware.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": { "name": "Andre Guerlain" },
   "homepage": "https://github.com/aguerlain-lr/warden",
   "repository": "https://github.com/aguerlain-lr/warden",

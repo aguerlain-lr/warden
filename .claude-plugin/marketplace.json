@@ -5,8 +5,8 @@
   "plugins": [
     {
       "name": "warden",
-      "description": "Skills for the nono-sandboxed ('jailed') Claude Code: setup-jail (installs the jail's command-policy config, bash-read allowlist, and audit-log hook into the jail's config dir) and tune-nono (host-only; correlates nono kernel denials with the jail's permission-requests log and drafts nono profile edits). Leans on the housekeep command-policy skill. CLAUDE_CONFIG_DIR-aware.",
-      "version": "0.1.0",
+      "description": "Skills for the nono-sandboxed ('jailed') Claude Code, both host-run: setup-jail (host provisions the jail's command-policy config, bash-read allowlist, and audit-log hook into the jail's config dir via $JAIL_DIR) and tune-nono (correlates nono kernel denials with the jail's permission-requests log and drafts nono profile edits). Leans on the housekeep command-policy skill. CLAUDE_CONFIG_DIR-aware.",
+      "version": "0.2.0",
       "source": "./",
       "author": { "name": "Andre Guerlain" }
     }
